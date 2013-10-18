@@ -16,5 +16,5 @@ insert into tools(tool,version,tool_desc) values ('FPING','1.1','Fping test');
 
 -- Basic User info
 
-insert into users(name,email,street,city,state,postalcode,phone,skype,sip) values('Dave Täht','d+postgres@taht.net','40 mt norte del mercado', 'San Juan Del Sur','','Nicaragua','001-239-2000-2200','davetaht','d@taht.net');
+--insert into users(name,email,street,city,state,postalcode,phone,skype,sip) values('Dave Täht','d+postgres@taht.net','40 mt norte del mercado', 'San Juan Del Sur','','Nicaragua','001-239-2000-2200','davetaht','d@taht.net');
 
