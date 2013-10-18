@@ -17,8 +17,12 @@ export:
 import:
 
 verify:
+	psql -f dummy_inserts.sql $(DB)
 
 test:
+
+cleansql:
+	rm -f *.gsql */*.gsql */*/*.gsql	
 
 clean:
 	dropdb $(DB)

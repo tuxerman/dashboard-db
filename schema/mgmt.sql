@@ -37,44 +37,44 @@ create trigger gen_id_tools_update before update on tools
 create trigger gen_id_tools_insert before insert on tools
 	for each row execute procedure gen_id_tools_insert();
 
-CREATE TABLE sla (
-    isp varchar(30) NOT NULL,
-    sla varchar(30) NOT NULL, 
-    dl bigint DEFAULT 0,
-    ul bigint DEFAULT 0,
-    id id_t,
-    primary key(id)
-);
+-- CREATE TABLE sla (
+--     isp varchar(30) NOT NULL,
+--     sla varchar(30) NOT NULL, 
+--     dl bigint DEFAULT 0,
+--     ul bigint DEFAULT 0,
+--     id id_t,
+--     primary key(id)
+-- );
 
-CREATE TABLE testseries (
-    shortcode varchar(4),
-    testname varchar(40),
-    id testseries_t,
-    primary key(shortcode),
-    unique(id)
-);
+-- CREATE TABLE testseries (
+--     shortcode varchar(4),
+--     testname varchar(40),
+--     id testseries_t,
+--     primary key(shortcode),
+--     unique(id)
+-- );
 
-CREATE TABLE userdevices (
-    deviceid deviceid_t,
-    startdt eventstamp_t,
-    enddt eventstamp_t,
-    testseries testseriesref_t,
-    userid idref_t,
-    id id_t,
-    primary key(userid, deviceid, testseries),
-    unique(id)
-);
+-- CREATE TABLE userdevices (
+--     deviceid deviceid_t,
+--     startdt eventstamp_t,
+--     enddt eventstamp_t,
+--     testseries testseriesref_t,
+--     userid idref_t,
+--     id id_t,
+--     primary key(userid, deviceid, testseries),
+--     unique(id)
+-- );
 
-CREATE TABLE devices (
-    deviceid deviceid_t,
-    name dnsname_t,
-    device_type device_type_t,
-    os osname_t,
-    version version_t,
-    active bool,
-    last_update eventstamp_t,
-    primary key(deviceid)
-);
+-- CREATE TABLE devices (
+--     deviceid deviceid_t,
+--     name dnsname_t,
+--     device_type device_type_t,
+--     os osname_t,
+--     version version_t,
+--     active bool,
+--     last_update eventstamp_t,
+--     primary key(deviceid)
+-- );
 
 CREATE TABLE users (
     name varchar(100) NOT NULL,
@@ -91,13 +91,13 @@ CREATE TABLE users (
     primary key (id)
 );
 
-CREATE TABLE usersla (
-    startdt numeric(20,0) DEFAULT NULL::numeric,
-    enddt numeric(20,0) DEFAULT NULL::numeric,
-    userid idref_t,
-    slaid idref_t,
-    id id_t,
-    primary key(userid,slaid),
-    unique(id)
-);
+-- CREATE TABLE usersla (
+--     startdt numeric(20,0) DEFAULT NULL::numeric,
+--     enddt numeric(20,0) DEFAULT NULL::numeric,
+--     userid idref_t,
+--     slaid idref_t,
+--     id id_t,
+--     primary key(userid,slaid),
+--     unique(id)
+-- );
 
