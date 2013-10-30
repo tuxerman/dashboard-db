@@ -31,8 +31,6 @@ psql $DB -f $CONTRIBDIR/pg_buffercache.sql
 # (it also helps to have no indexes during imports)
 # Similarly permissions and triggers
 
-bismark_active/gen_capetown.sh
-
 FILES="types.sql functions.sql mgmt.sql table_templates.sql gen_capetown.sh *.gsql mgmt_data.sql" 
 for i in $FILES
 do
