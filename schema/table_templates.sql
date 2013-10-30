@@ -89,7 +89,9 @@ CREATE OR REPLACE function gen_id_measurement_insert() returns trigger as $gen_i
   EXCEPTION
     WHEN undefined_table
     THEN
-        EXECUTE 'CREATE TABLE ' || TG_TABLE_NAME || '_' || suffix || '() INHERITS('|| TG_TABLE_NAME|| ');';
+        SELECT INTO yyyy * FROM to_char( New.eventstamp, 'YYYY');
+        SELECT INTO mm * FROM to_char( New.eventstamp, 'MM');
+        EXECUTE 'CREATE TABLE ' || TG_TABLE_NAME || '_' || suffix || '( CHECK ( eventstamp >= DATE ''' || yyyy || '-' || mm || '-01'' AND eventstamp <= DATE ''' || yyyy || '-' || mm || '-01'' + interval ''1 month'' ) ) INHERITS('|| TG_TABLE_NAME|| ');';
         EXECUTE 'INSERT INTO ' || TG_TABLE_NAME || '_' || suffix || ' SELECT $1.*;' USING NEW;
         RETURN null;
     WHEN OTHERS
@@ -104,5 +106,5 @@ language plpgsql volatile;
 create trigger gen_id_measurements_update before update on measurements_tmpl
 	for each row execute procedure gen_id_measurement_update();
 
-create trigger gen_id_measurements_insert before insert on measurements_tmpl
+create trigger gen_id_measurements_insert instead of insert on measurements_tmpl
 	for each row execute procedure gen_id_measurement_insert();
