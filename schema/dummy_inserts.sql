@@ -13,4 +13,7 @@ insert into m_rtt   (deviceid,       srcip,              dstip,              eve
 
 -- diagnostic: list entries in m_rtt and list tables
 select * from m_rtt;
+
+-- explain select * from m_rtt where eventstamp >= DATE '2013-09-21 06:57:43';
+
 \dt;
