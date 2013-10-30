@@ -33,9 +33,7 @@ psql $DB -f $CONTRIBDIR/pg_buffercache.sql
 
 bismark_active/gen_capetown.sh
 
-TESTS="bismark_active/*.sql bismark_active/triggers/*.sql \
-	*.gsql"
-FILES="types.sql functions.sql mgmt.sql table_templates.sql $TESTS mgmt_data.sql" 
+FILES="types.sql functions.sql mgmt.sql table_templates.sql gen_capetown.sh *.gsql mgmt_data.sql" 
 for i in $FILES
 do
 psql -f $i $DB
